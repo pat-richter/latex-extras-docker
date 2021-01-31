@@ -46,7 +46,10 @@ RUN apt-get update && \
 
 # Adding fonts I like
 RUN \
+    ls -lsa /usr/local/share/fonts
     wget https://www.fontsquirrel.com/fonts/download/nunito-sans -O /tmp/nunito-sans.zip && \
+    mkdir /usr/local/share/fonts/Nunito\ Sans
+    ls -lsa /usr/local/share/fonts
     unzip /tmp/nunito-sans.zip -d /usr/local/share/fonts/Nunito\ Sans
 
 FROM BASE as DOWNLOADS
