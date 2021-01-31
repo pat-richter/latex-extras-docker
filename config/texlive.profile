@@ -81,11 +81,11 @@ collection-langcjk 0
 collection-langcyrillic 0
 collection-langczechslovak 0
 collection-langfrench 0
-collection-langgreek 0
+collection-langgreek 1
 collection-langitalian 0
 collection-langjapanese 0
 collection-langkorean 0
-collection-langother 0
+collection-langother 1
 collection-langpolish 0
 collection-langportuguese 0
 collection-langspanish 0
