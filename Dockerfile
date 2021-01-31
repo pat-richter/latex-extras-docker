@@ -40,7 +40,9 @@ RUN apt-get update && \
         make \
         # Get `envsubst` to replace environment variables in files with their actual
         # values.
-        gettext-base
+        gettext-base \
+        # unzip for adding fonts
+        unzip
 
 # Adding fonts I like
 RUN \
