@@ -42,6 +42,10 @@ RUN apt-get update && \
         # values.
         gettext-base
 
+# Adding fonts I like
+RUN \
+    wget https://www.fontsquirrel.com/fonts/download/nunito-sans -O /tmp/nunito-sans.zip && \
+    unzip /tmp/nunito-sans.zip -d /usr/local/share/fonts/Nunito\ Sans
 
 FROM BASE as DOWNLOADS
 
@@ -180,7 +184,7 @@ RUN apt-get update && \
 
 USER ${USER}
 
-# Load font cache, has to be done on each compilation otherwise
+# Load cache, has to be done on each compilation otherwise
 # ("luaotfload | db : Font names database not found, generating new one.").
 # If not found, e.g. TeXLive 2012 and earlier, simply skip it. Will return exit code
 # 0 and allow the build to continue.
