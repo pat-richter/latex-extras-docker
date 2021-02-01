@@ -40,17 +40,15 @@ RUN apt-get update && \
         make \
         # Get `envsubst` to replace environment variables in files with their actual
         # values.
-        gettext-base \
-        # unzip for adding fonts
-        unzip
+        gettext-base
 
-# Adding fonts I like
+# Adding fonts I like# Adding fonts I like
+# strip components to avoid missing directories
 RUN \
-    ls -lsa /usr/local/share/fonts \
-    wget https://www.fontsquirrel.com/fonts/download/nunito-sans -O /tmp/nunito-sans.zip && \
-    mkdir /usr/local/share/fonts/Nunito\ Sans \
-    ls -lsa /usr/local/share/fonts \
-    unzip /tmp/nunito-sans.zip -d /usr/local/share/fonts/Nunito\ Sans
+    mkdir /usr/local/share/fonts && \
+    wget https://github.com/pat-richter/latex-extras-docker/raw/master/fonts/fonts.tar.gz -O /tmp/fonts.tar.gz && \
+    tar --extract --file=/tmp/fonts.tar.gz --directory=/usr/local/share/fonts --strip-components 1 && \
+    ls -lsa /usr/local/share/fonts
 
 FROM BASE as DOWNLOADS
 
